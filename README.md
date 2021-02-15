@@ -1,35 +1,16 @@
-🚧 Work In Progress 
-========
+# Coverage Sample
 
-These samples are for an in-progress feature of Roslyn. As such they may change or break as the feature is developed, and no level of support is implied.
+## Summary
 
-For more infomation on the Source Generators feature, see the [design document](https://github.com/dotnet/roslyn/blob/master/docs/features/source-generators.md).
+This solution demonstrates that no coverage data is obtained for a project who's code is under test but also references a source generator.
 
-Prerequisites
------
+The source generator used here is a very simple hello world string generator obtained from the Roslyn cookbook.
 
-These samples require Visual Studio 16.6 or higher.
+## Running the sample
 
-Building the samples
------
-Open `SourceGenerators.sln` in Visual Studio or run `dotnet build` from the `\SourceGenerators` directory.
+1. Pull the repository locally and change directory to the local repo folder.
+2. Start a powershell terminal and run `.\coverlet-coverage.ps1`.  This script merely runs the tests with coverage enabled.
 
-Running the samples
------
+## Analysis
 
-The generators must be run as part of another build, as they inject source into the project being built. This repo contains a sample project `GeneratorDemo` that relies of the sample generators to add code to it's compilation. 
-
-Run `GeneratedDemo` in Visual studio or run `dotnet run` from the `GeneratorDemo` directory.
-
-Using the samples in your project
------
-
-You can add the sample generators to your own project by adding an item group containing an analyzer reference:
-
-```xml
-<ItemGroup>
-    <Analyzer Include="path\to\SourceGeneratorSamples.dll">
-</ItemGroup>
-```
-
-You may need to close and reopen the solution in Visual Studio for the change to take effect.
+The coverage results will show HelloWorld2 is covered 100% however HelloWorld does not appear in any result.
